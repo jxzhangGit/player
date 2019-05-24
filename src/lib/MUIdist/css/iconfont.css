@@ -1,0 +1,26 @@
+@font-face {
+  font-family: "iconfont";
+  src: url('../fonts/iconfont.ttf?t=1558438415262') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  /* -moz-osx-font-smoothing: grayscale; */
+}
+
+.iconyinle:before {
+  content: "\e66d";
+}
+
+.iconyinyue:before {
+  content: "\e680";
+}
+
