@@ -11,7 +11,7 @@
           </div>
           <div class="mui-media-body">
             <h3>{{ item.name }}</h3>
-            <p class="mui-ellipsis">{{ item.ar[0].name }}</p>
+            <p class="mui-ellipsis" v-if="item.ar">{{ item.ar[0].name }}</p>
           </div>
         </router-link>
       </li>
@@ -45,7 +45,7 @@ export default {
             // console.log(result.body);
             this.playlistInfo = result.body.playlist;
             this.playlist = result.body.privileges;
-            console.log(this.playlist);
+            // console.log(this.playlist);
           } else Toast("获取歌单失败");
         })
         .then(function() {
@@ -53,13 +53,13 @@ export default {
             this.playlistId.push(this.playlist[index].id);
           }
           this.playlist = [];
-          console.log(this.playlistId);
+          // console.log(this.playlistId);
           const idstr = this.playlistId.join(",");
           // console.log(idstr);
           return this.$http.get("song/detail?ids=" + idstr);
         })
         .then(result => {
-          console.log(result);
+          // console.log(result);
           if (result.status == 200) {
             this.playlist = result.body.songs;
           }

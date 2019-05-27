@@ -36,7 +36,7 @@ export default {
         .then(result => {
           if (result.status === 200) {
             this.toplist = result.body.list;
-            console.log(this.toplist);
+            // console.log(this.toplist);
           }
         })
         .catch(res => {

@@ -47,7 +47,7 @@ export default {
         }
       }
 
-      console.log("watch");
+      // console.log("watch");
     }
   },
   methods: {
@@ -56,7 +56,7 @@ export default {
         .get("top/playlist?limit=" + this.limit + "&cat=欧美")
         .then(result => {
           if (result.status === 200) {
-            console.log(result);
+            // console.log(result);
             this.rePlaylist = result.body.playlists;
           } else {
             Toast("获取歌单失败");

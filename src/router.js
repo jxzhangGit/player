@@ -31,6 +31,13 @@ import userPlaylist from "./component/login/user/userPlaylist.vue"
 
 
 import search from "./component/search/search.vue"
+import resSongs from "./component/search/resSongs.vue"
+import resSongsList from "./component/search/resSongsList.vue"
+import resAlbum from "./component/search/resAlbum.vue"
+import resAuthor from "./component/search/resAuthor.vue"
+import resUser from "./component/search/resUser.vue"
+
+
 
 var router = new VueRouter({
   routes: [
@@ -67,7 +74,14 @@ var router = new VueRouter({
       ]},
     {path:"/user/login", component:login},
 
-    {path:"/search", component:search},
+    {path:"/search", component:search,redirect:"/search/resSongs",
+    children: [
+      {path:"resSongs", component:resSongs},
+      {path:"resSongsList", component:resSongsList},
+      {path:"resAlbum", component:resAlbum},
+      {path:"resAuthor", component:resAuthor},
+      {path:"resUser", component:resUser}
+    ]},
   ],
   linkActiveClass: "mui-active"
 })
