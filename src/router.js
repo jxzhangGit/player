@@ -1,11 +1,14 @@
-import Vue from "Vue"
+// import Vue from "Vue"
 import VueRouter from "vue-router"
-Vue.use(VueRouter)
+// Vue.use(VueRouter)
+
+// import store from './store.js'
 
 import home from "./component/tabbar/Home.vue"
 import member from "./component/tabbar/Member.vue"
 import playingList from "./component/tabbar/playingList.vue"
 import user from "./component/tabbar/User.vue"
+
 
 import newsList from "./component/newsList/newsList.vue"
 import musinfo from "./component/newsList/musinfo.vue"
@@ -17,11 +20,17 @@ import EnPlaylist from "./component/playlist/EnPlaylist.vue"
 import JaPlaylist from "./component/playlist/JaPlaylist.vue"
 import KoPlaylist from "./component/playlist/KoPlaylist.vue"
 import CanPlaylist from "./component/playlist/CanPlaylist.vue"
+import playlistDetail from "./component/playlist/playlistDetail.vue"
+
+import toplist from "./component/toplist/toplist.vue"
+import toplistDetail from "./component/toplist/toplistDetail.vue"
 
 import login from "./component/login/login.vue"
 import userInfo from "./component/login/user/userInfo.vue"
 import userPlaylist from "./component/login/user/userPlaylist.vue"
 
+
+import search from "./component/search/search.vue"
 
 var router = new VueRouter({
   routes: [
@@ -39,6 +48,10 @@ var router = new VueRouter({
       {path:"KoPlaylist", component:KoPlaylist},
       {path:"CanPlaylist", component:CanPlaylist},
     ]},
+    {path:"/playlist/detail/:id", component:playlistDetail},
+    {path:"/home/toplist", component:toplist},
+    {path:"/home/toplist/:idx", component:toplistDetail},
+
 
     // =====
     {path:"/member", component:member},
@@ -53,8 +66,12 @@ var router = new VueRouter({
         {path:"userPlaylist", component:userPlaylist}
       ]},
     {path:"/user/login", component:login},
+
+    {path:"/search", component:search},
   ],
   linkActiveClass: "mui-active"
 })
+
+
 
 export default router;

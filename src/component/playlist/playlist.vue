@@ -38,7 +38,7 @@ export default {
     getPlaylistCatlist(){
       this.$http.get("playlist/catlist").then(result=>{
         if(result.status==200){
-          console.log(result);
+          // console.log(result);
         }else{
           Toast("获取歌单失败");
         }

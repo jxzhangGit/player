@@ -15,7 +15,7 @@
         </router-link>
       </li>
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-        <router-link to="">
+        <router-link to="home/toplist">
           <img src="../../img/menu2.png" alt="">
           <div class="mui-media-body">排行榜</div>
         </router-link>
@@ -80,16 +80,20 @@ export default {
   width: 100%;
   height: 100%;
 }
+.mui-table-view-cell{
+  width: 25%;
+}
 .mui-grid-view.mui-grid-9{
   background-color: #fff;
   border: none;
+  min-width: 350px;
 }
 .mui-grid-view.mui-grid-9 .mui-table-view-cell{
   border: none;
 }
 .mui-grid-view.mui-grid-9 img{
-  width: 60px;
-  height: 60px;
+  width: 50%;
+  height: 50%;
 }
 </style>
 

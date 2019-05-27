@@ -1,18 +1,19 @@
 <template>
   <div>
     <player class="player"></player>
-    <div :class="{content:true,contentplayer:true}" >
+    <div :class="{content:true,contentplayer:true}">
       <mt-header fixed title="张家欣项目">
         <router-link to="/home" slot="left">
           <mt-button icon="back">返回</mt-button>
         </router-link>
-        <mt-button icon="more" slot="right"></mt-button>
+        <router-link to="/search" slot="right">
+          <mt-button icon="search"></mt-button>
+        </router-link>
       </mt-header>
       <!-- <a href="#" @click="player.created">asdfadsfasdf</a> -->
       <transition mode="out-in">
         <router-view></router-view>
       </transition>
-      <p>{{ isactive }}</p>
       <nav class="mui-bar mui-bar-tab">
         <router-link class="mui-tab-item" to="/home">
           <span class="mui-icon mui-icon-home"></span>
@@ -24,7 +25,7 @@
         </router-link>
         <router-link class="mui-tab-item" to="/playingLIst">
           <span class="mui-icon iconfont iconyinle">
-            <span class="mui-badge">9</span>
+            <span class="mui-badge">{{ this.$store.state.songsListId.length }}</span>
           </span>
           <span class="mui-tab-label">播放列表</span>
         </router-link>
@@ -40,14 +41,19 @@
 <script>
 import player from "./component/player/Player.vue";
 export default {
-  data(){
+  data() {
     return {
-      songidMsg:347230,
-      isactive:true
-    }
+      songidMsg: 347230,
+      isactive: true
+    };
   },
   components: {
     player: player
+  },
+  methods: {
+    showChildMsg(data) {
+      console.log(data);
+    }
   }
 };
 </script>
@@ -55,13 +61,14 @@ export default {
 
 <style scoped>
 .content {
-  width: 800px;
+  width: 80%;
+  min-width: 350px;
   padding-top: 40px;
   padding-bottom: 50px;
   margin: 0 auto;
   overflow-x: hidden;
 }
-.contentplayer{
+.contentplayer {
   padding-top: 150px;
 }
 
@@ -83,9 +90,10 @@ export default {
   height: 100%;
 }
 .player {
-  width: 900px;
+  width: 90%;
+  min-width: 300px;
   position: fixed;
-  margin-left: -450px;
+  margin-left: -45%;
   margin-top: 25px;
   left: 50%;
   display: block;

@@ -1,11 +1,11 @@
 <template>
   <div>
-    <h1>这是推荐歌单</h1>
+    <h1>推荐歌单</h1>
     <div class="row">
       <div v-for="item in rePlaylist" :key="item.id" class="listBox">
-        <a href="#" class="thumbnail">
+        <router-link :to="'/playlist/detail/'+item.id" class="thumbnail">
           <img :src="item.coverImgUrl" alt class="listImg">
-        </a>
+        </router-link>
         <p class="line-limit-length">{{ item.description | descriptionFilter }}</p>
       </div>
     </div>
@@ -14,7 +14,14 @@
 </template>
 
 <script>
+
 import { Toast } from "mint-ui";
+import Vue from "Vue";
+import { constants } from "crypto";
+import { clearTimeout, setTimeout } from "timers";
+
+
+
 export default {
   data() {
     return {
@@ -91,14 +98,7 @@ export default {
     }
   }
 };
-import Vue from "Vue";
-import { constants } from "crypto";
-import { clearTimeout, setTimeout } from "timers";
-Vue.filter("descriptionFilter", function(description) {
-  if (description == null) {
-    return "此歌单没有介绍";
-  } else return description;
-});
+
 </script>
 
 <style scoped>

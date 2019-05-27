@@ -55,14 +55,15 @@ export default {
 
 <style scoped>
 .profile {
-  position: absolute;
-  width: 800px;
-  margin: 10px auto;
+  width: 80%;
+  margin: 3% auto;
   text-align:center;
 }
 .profile-photo {
-  height: 100px;
-  width: 100px;
+  height: 30%;
+  width: 30%;
+  min-height: 100px;
+  min-width: 100px;
 }
 .profile ul{
   display: inline-block;

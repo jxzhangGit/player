@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import {Toast} from "mint-ui"
 export default {
   data() {
     return {
@@ -30,11 +31,12 @@ export default {
       this.$http
         .get("user/playlist?uid=" + this.$route.query.uid)
         .then(result => {
-          console.log(result);
+          // console.log(result);
           this.playlist = result.body.playlist;
         })
         .catch(res => {
-          console.log("===" + res);
+          // console.log("===" + res);
+          Toast("用户歌单获取失败")
         });
     }
   }

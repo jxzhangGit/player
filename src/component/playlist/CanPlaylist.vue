@@ -3,9 +3,9 @@
     <h1>粤语热门歌单</h1>
     <div class="row">
       <div v-for="item in rePlaylist" :key="item.id" class="listBox">
-        <a href="#" class="thumbnail">
+        <router-link :to="'/playlist/detail/'+item.id" class="thumbnail">
           <img :src="item.coverImgUrl" alt class="listImg">
-        </a>
+        </router-link>
         <p class="line-limit-length">{{ item.description | descriptionFilter }}</p>
       </div>
     </div>
@@ -47,7 +47,7 @@ export default {
         }
       }
 
-      console.log("watch");
+      // console.log("watch");
     }
   },
   methods: {
@@ -56,7 +56,7 @@ export default {
         .get("top/playlist?limit=" + this.limit + "&cat=粤语")
         .then(result => {
           if (result.status === 200) {
-            console.log(result);
+            // console.log(result);
             this.rePlaylist = result.body.playlists;
           } else {
             Toast("获取歌单失败");

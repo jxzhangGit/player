@@ -3,9 +3,9 @@
     <h1>韩语热门歌单</h1>
     <div class="row">
       <div v-for="item in rePlaylist" :key="item.id" class="listBox">
-        <a href="#" class="thumbnail">
+        <router-link :to="'/playlist/detail/'+item.id" class="thumbnail">
           <img :src="item.coverImgUrl" alt class="listImg">
-        </a>
+        </router-link>
         <p class="line-limit-length">{{ item.description | descriptionFilter }}</p>
       </div>
     </div>

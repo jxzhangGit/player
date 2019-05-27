@@ -1,8 +1,13 @@
-import Vue from "Vue"
+import Vue from "vue"
 // 导入路由
 import VueRouter from "vue-router"
 Vue.use(VueRouter)
 import router from "./router.js"
+
+
+// 导入vuex
+import store from "./store"
+
 
 // 导入vue-resource
 import VueResource from "vue-resource"
@@ -11,6 +16,10 @@ Vue.http.options.root = "http://localhost:3000"
 Vue.http.options.emulateJSON = true;
 Vue.http.options.xhr = { withCredentials: true };
 import app from "./app.vue"
+
+
+
+
 
 // 导入mint ui
 import MintUI from "mint-ui"
@@ -31,16 +40,6 @@ import "bootstrap/dist/css/bootstrap.css"
 import global_ from './component/common/global.vue'
 Vue.prototype.GLOBAL = global_;
 
-var vm = new Vue({
-  el: "#app",
-  data:{
-    playsongsList:[],
-    playingSongInfo:{},
-  },
-  render: c => c(app),
-  router
-})
-
 
 import moment from "moment"
 Vue.filter("dataFormat",function(dataStr,pattern="YYYY-MM-DD HH:MM:SS"){
@@ -53,3 +52,19 @@ Vue.filter("genderFormat",function(gender){
     return "男";
   }else return "女";
 })
+Vue.filter("descriptionFilter", function(description) {
+  if (description == null) {
+    return "此歌单没有介绍";
+  } else return description;
+});
+
+var vm = new Vue({
+  el: "#app",
+  store,
+  data: {},
+  methods: {},
+  render: c => c(app),
+  router
+})
+
+

@@ -2,10 +2,10 @@
   <div class="userInfo_content">
     <h4>个人信息</h4>
     <p>等级：{{ userInfo.level }}</p>
-    <p>性别：{{ `userInfo.profile.gender` | genderFormat }}</p>
+    <p v-if="userInfo.profile">性别：{{ userInfo.profile.gender | genderFormat }}</p>
     <p>听歌数目：{{ userInfo.listenSongs }}</p>
     <h4>个人介绍</h4>
-    <p>个人介绍：{{ userInfo.profile.signature | signatureFormat}}</p>
+    <p v-if="userInfo.profile">个人介绍：{{ userInfo.profile.signature | signatureFormat}}</p>
   </div>
 </template>
 
@@ -41,8 +41,9 @@ export default {
 
 <style scoped>
 .userInfo_content {
+  width: 30%;
+  min-width: 200px;
   margin: 0 auto;
-  width: 200px;
   text-align: left;
 }
 </style>
