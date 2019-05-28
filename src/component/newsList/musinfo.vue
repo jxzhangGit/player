@@ -4,7 +4,7 @@
     <h3 class="tittle" v-if="musinfo[0]">{{ musinfo[0].name }}</h3>
     <p class="subtittle">
       <span class="arName" v-if="musinfo[0]&&musinfo[0].ar">{{ musinfo[0].ar[0].name }}</span>
-      <a href="" @click.prevent="increment">添加到播放列表</a>
+      <a href="" @click.prevent="increment" v-if="musinfo[0]">添加到播放列表</a>
     </p>
     <hr>
     <div class="content"></div>
