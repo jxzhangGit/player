@@ -5,6 +5,7 @@ A vue.js project
     # install NeteaseCloudMusicApi
     $ git clone https://github.com/Binaryify/NeteaseCloudMusicApi.git
     npm install
+    node app.js
 
     # install
     $ git clone https://github.com/jxzhangGit/player.git
