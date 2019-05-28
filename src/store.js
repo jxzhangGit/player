@@ -4,6 +4,8 @@ Vue.use(Vuex)
 // 首先声明一个状态 state
 const state = {   // 要设置的全局访问的state对象
    count: 1,
+   delRequire: 1,
+   delSongId: null,
    songId: null,
    songsList:[{}],
    songInfo:{},
@@ -19,11 +21,12 @@ const actions = {
 const mutations = {
    addCount(state) {
       state.count++;
-      console.log(state.count)
+      // console.log(state.count)
    },
-   // pusharr(state) {
-   //    state.songsList.push(state.songInfo);
-   // }
+   del(state) {
+      state.delRequire++;
+      // console.log(state.delRequire)
+   }
 }
 // 获取状态信息
 const getters = {  // 实时监听state值的变化

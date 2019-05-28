@@ -32,6 +32,7 @@ export default {
     };
   },
   created() {
+    console.log(this.$store.state.songsListId)
     this.getPlayingList();
   },
   methods: {
@@ -43,7 +44,7 @@ export default {
         .then(result => {
           if (result.status === 200) {
             this.showList = result.body.songs;
-            console.log(this.showList);
+            // console.log(this.showList);
           }
         })
         .catch(res => {
@@ -63,6 +64,16 @@ export default {
           return true;
         }
       });
+      console.log(this.showList);
+      this.$store.state.delSongId = id;
+      this.$store.commit("del");
+      // this.$store.state.songsList.some((item, i) => {
+      //   if (item.id == id) {
+      //     this.$store.state.songsList.splice(i, 1);
+      //     return true;
+      //   }
+      // });
+      // console.log(this.$store.state.songsList);
     }
   }
 };

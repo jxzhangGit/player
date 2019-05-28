@@ -48,6 +48,9 @@ export default {
   computed: {
     count() {
       return this.$store.state.count;
+    },
+    delRequire() {
+      return this.$store.state.delRequire;
     }
     // songList(){
     //   return this.$store.state.songList;
@@ -66,6 +69,23 @@ export default {
         this.playerflag = false;
         this.sendSongList(this.$store.state.songId);
       }
+    },
+    delRequire: function() {
+      this.playerflag = false;
+      this.songIndex--;
+      this.$store.state.songsList.some((item, i) => {
+        if (item.id == this.$store.state.delSongId) {
+          this.$store.state.songsList.splice(i, 1);
+          return true;
+        }
+      });
+      // console.log(this.$store.state.delSongId);
+      // console.log([1,2,3,4]);
+      var index = this.$store.state.songsListId.indexOf(this.$store.state.delSongId.toString());
+      // console.log(index);
+      this.$store.state.songsListId.splice(index, 1);
+      // console.log(this.$store.state.songsListId)
+      this.playerflag = true;
     }
   },
   methods: {
@@ -90,6 +110,7 @@ export default {
           ) {
             // console.log(result_detail.songInfo);
             this.songInfoFlag = 2;
+            this.$store.state.songInfo.id = songId;
             this.$store.state.songInfo.title = result_detail.body.songs[0].name;
             this.$store.state.songInfo.pic =
               result_detail.body.songs[0].al.picUrl;
@@ -124,7 +145,7 @@ export default {
           this.$store.state.songsList.push(songInfo);
           // this.$store.state.songsList.push(this.$store.state.songInfo);
           // this.$store.commit("pusharr");
-          console.log(this.$store.state.songsList);
+          // console.log(this.$store.state.songsList);
           this.playerflag = true;
           this.songInfoFlag = 0;
         })
