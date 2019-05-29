@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>未登录，请先登录账号</p>
+    <p>未登录，请先登录网易云音乐账号</p>
     <div class="input-group input-group-lg">
       <span class="input-group-addon" id="basic-addon1">账号</span>
       <input
